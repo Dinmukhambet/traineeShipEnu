@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - traineeship@localhost" uuid="8fc23ced-35f6-49ff-a22c-b387026ade91">
+    <database-info product="MySQL" version="5.7.12-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="traineeship"/>
+    <table name="company" schema="" catalog="traineeship" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="address" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="definition" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name_of_company" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="faculty" schema="" catalog="traineeship" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name_of_faculty" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FKikfg4u98omxq946shpjuj2bf0" table="speciality" schema="" catalog="traineeship" columns="faculty_id"/>
+      <exported-key name="FK6geq7tnjed7u4hvgv1ac6lyh" table="student" schema="" catalog="traineeship" columns="faculty_id"/>
+    </table>
+    <table name="speciality" schema="" catalog="traineeship" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name_of_spec" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="faculty_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FKikfg4u98omxq946shpjuj2bf0" columns="faculty_id" ref-table="faculty" ref-schema="" ref-catalog="traineeship" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FKt434hun0i4tv58xnfvkbttk7v" table="student" schema="" catalog="traineeship" columns="speciality_id"/>
+      <index name="FKikfg4u98omxq946shpjuj2bf0" unique="false" columns="faculty_id"/>
+    </table>
+    <table name="student" schema="" catalog="traineeship" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="date_of_birth" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="first_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="middle_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="second_name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="faculty_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="speciality_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="nickname" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK6geq7tnjed7u4hvgv1ac6lyh" columns="faculty_id" ref-table="faculty" ref-schema="" ref-catalog="traineeship" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FKt434hun0i4tv58xnfvkbttk7v" columns="speciality_id" ref-table="speciality" ref-schema="" ref-catalog="traineeship" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK5wsgmwcdh1mu2aakbatae9ouh" table="student_roles" schema="" catalog="traineeship" columns="student_id"/>
+      <index name="UK_1sju6ehq67qqidsf7kjuowmii" unique="true" columns="nickname"/>
+      <index name="UK_b1tymbidrqutcrvcs7qjv8m9b" unique="true" columns="speciality_id"/>
+      <index name="UK_lq1qj1bw5uwcnhbjemoju4fsw" unique="true" columns="faculty_id"/>
+    </table>
+    <table name="student_roles" schema="" catalog="traineeship" type="TABLE">
+      <column name="student_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="roles" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <foreign-key name="FK5wsgmwcdh1mu2aakbatae9ouh" columns="student_id" ref-table="student" ref-schema="" ref-catalog="traineeship" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK5wsgmwcdh1mu2aakbatae9ouh" unique="false" columns="student_id"/>
+    </table>
+  </data-source>
+</component>

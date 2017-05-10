@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>awasf</title>
+</head>
+<body>
+<h2>registration</h2>
+
+<h2>Заполните информацию о себе</h2>
+<div>
+    <form th:action="@{/registration}" th:object="${studentForm}" method="post">
+
+        <tr>
+           <td>имя:</td>
+           <td><input type="text" th:field="*{firstName}"/></td>
+            <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">firstname error</td>
+       </tr>
+        <br/>
+        <tr>
+            <td>Фамилия:</td>
+            <td><input type="text" th:field="*{secondName}"/></td>
+            <td th:if="${#fields.hasErrors('secondName')}" th:errors="*{secondName}">secondname error</td>
+        </tr>
+        <br/>
+        <tr>
+            <td>Отчество:</td>
+            <td><input type="text" th:field="*{middleName}"/></td>
+            <td th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">sdasdf error</td>
+        </tr>
+        <br/>
+         <select th:field="*{faculty}">
+            <option th:each="faculty : ${allFaculties}"
+                    th:value="${faculty.nameOfFaculty}"
+                    th:text="${faculty.nameOfFaculty}">faculty</option>
+        </select>
+        <br/>
+        <select th:field="*{speciality}">
+            <option th:each="speciality : ${allSpec}"
+                    th:value="${speciality.nameOfSpec}"
+                    th:text="${speciality.nameOfSpec}">cathedra</option>
+        </select>
+        <br/>
+        <tr>
+            <td><input type="email" th:field="*{email}"/></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">mail error</td>
+            <br/>
+        </tr>
+        <tr>
+            <td><input type="text" th:field="*{nickName}"/></td>
+            <td th:if="${#fields.hasErrors('nickName')}" th:errors="*{nickName}">nickName error</td>
+        </tr>
+        <br/>
+        <tr>
+            <td><input type="date" th:field="*{dateOfBirth}"/></td>
+            <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">date error</td>
+        </tr>
+        <br/>
+        <tr>
+            <td>Пароль:</td>
+            <td><input type="password" th:field="*{password}"/></td>
+            <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}"> error</td>
+        </tr>
+        <br/>
+        <tr>
+            <td>Потдверждение пароля:</td>
+            <td><input type="password" th:field="*{confirmPass}"/></td>
+            <td th:if="${#fields.hasErrors('confirmPass')}" th:errors="*{confirmPass}">not same password</td>
+        </tr>
+        <br/>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+        </tr>
+
+    </form>
+</div>
+
+</body>
+</html>
