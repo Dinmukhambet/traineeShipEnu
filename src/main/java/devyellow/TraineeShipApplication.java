@@ -14,5 +14,8 @@ public class TraineeShipApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TraineeShipApplication.class, args);
+
     }
+
+
 }
