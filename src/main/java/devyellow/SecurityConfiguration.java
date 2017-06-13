@@ -43,7 +43,7 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/webjars/**","/css/**","/js/**","/").permitAll()
+                .antMatchers("/css/**","/js/**","/","images/**","/fonts/**").permitAll()
                 .antMatchers("/errorpage").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()

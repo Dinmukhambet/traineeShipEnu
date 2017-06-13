@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.ResourceBundleViewResolver;
  * Created by Admin on 12.04.2017.
  */
 @Configuration
+@EnableWebMvc
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean
@@ -42,6 +43,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
   @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+      registry.addResourceHandler("/fonts/**").addResourceLocations("classpath:/fonts/");
       registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
       registry.addResourceHandler("/css/**").addResourceLocations("classpath:/css/");
       registry.addResourceHandler("/img/**").addResourceLocations("classpath:/img/");

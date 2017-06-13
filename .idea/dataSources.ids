@@ -22,6 +22,12 @@
       <exported-key name="FKikfg4u98omxq946shpjuj2bf0" table="speciality" schema="" catalog="traineeship" columns="faculty_id"/>
       <exported-key name="FK6geq7tnjed7u4hvgv1ac6lyh" table="student" schema="" catalog="traineeship" columns="faculty_id"/>
     </table>
+    <table name="news" schema="" catalog="traineeship" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="caption" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="news" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="speciality" schema="" catalog="traineeship" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name_of_spec" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>

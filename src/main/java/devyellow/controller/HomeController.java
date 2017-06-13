@@ -20,8 +20,11 @@ public class HomeController {
 	public String loginPage(){
 		return "login";
 	}
+
 	/*@RequestMapping("/registration")
 	public  String registrationPage(){
 		return "registration";
 	}*/
+
+
 }
